@@ -156,7 +156,7 @@ export default class SideMenu extends React.Component {
             this.openMenu(false)
           }}
         >
-          <View style={[styles.overlay, { backgroundColor: this.getOverlayColor() }, this.props.containerStyle]} />
+          <View style={[styles.overlay, { backgroundColor: this.getOverlayColor() }]} />
         </TouchableWithoutFeedback>
       );
     }
