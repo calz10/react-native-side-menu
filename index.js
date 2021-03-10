@@ -17,6 +17,7 @@ type Props = {
   edgeHitWidth: number,
   toleranceX: number,
   toleranceY: number,
+  containerStyle: any,
   menuPosition: 'left' | 'right',
   onChange: Function,
   onMove: Function,
@@ -169,7 +170,7 @@ export default class SideMenu extends React.Component {
     ];
 
     return (
-      <Animated.View style={style} ref={ref} {...this.responder.panHandlers}>
+      <Animated.View style={[style, this.props.containerStyle]} ref={ref} {...this.responder.panHandlers}>
         {this.props.children}
         {overlay}
       </Animated.View>
@@ -230,6 +231,17 @@ export default class SideMenu extends React.Component {
     }
 
     return false;
+  }
+
+  shouldComponentUpdate(nextProps) {
+    const shouldSideMenuOpen = nextProps.settings.get('isSideMenuOpen');
+    const isSideMenuOpen = this.props.settings.get('isSideMenuOpen');
+
+    if (shouldSideMenuOpen !== isSideMenuOpen) {
+      return false;
+    } else {
+      return true;
+    }
   }
 
   openMenu(isOpen: boolean): void {
