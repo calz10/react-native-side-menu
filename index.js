@@ -170,7 +170,7 @@ export default class SideMenu extends React.Component {
     ];
 
     return (
-      <Animated.View style={[style, this.props.containerStyle]} ref={ref} {...this.responder.panHandlers}>
+      <Animated.View style={[style]} ref={ref} {...this.responder.panHandlers}>
         {this.props.children}
         {overlay}
       </Animated.View>
@@ -258,7 +258,7 @@ export default class SideMenu extends React.Component {
       { right: this.state.width - this.state.openMenuOffset };
 
     const menu = (
-      <View style={[styles.menu, boundryStyle]}>
+      <View style={[styles.menu, boundryStyle, this.props.containerStyle]}>
         {this.props.menu}
       </View>
     );
