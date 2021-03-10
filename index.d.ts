@@ -89,6 +89,7 @@ export interface ReactNativeSideMenuProps {
      * @default transparent
      */
     overlayColor?: string
+    containerStyle?: any
 }
 
 export default class SideMenu extends Component<ReactNativeSideMenuProps> {
